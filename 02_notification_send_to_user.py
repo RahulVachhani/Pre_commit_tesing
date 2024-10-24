@@ -15,17 +15,15 @@
 
 
 # Another like promt
-# import os
-# import time
+import os
+import time
 
 # command = '''zenity --entry --text="Please enter your name:"'''
-# command1= f'''zenity --info --text=" Welcome {command}:"'''
 # os.system(command)
-# os.system
 
-a = (
-    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "aaaaaaaaaaabbbbbbbb",
-    "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-    "bbbbbbbbbbbbbbnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
-)
+command = '''zenity --file-selection --title="Select a File"'''
+name = os.popen(command).read().strip()
+
+with open(name, "rb") as source:
+    with open("pdf.pdf", "wb") as file:  # here we give .py extention then we can copy python file
+        file.write(source.read())
